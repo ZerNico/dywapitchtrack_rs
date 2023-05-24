@@ -1,0 +1,21 @@
+[package]
+name = "dywapitchtrack"
+description = "A Rust implementation of dywapitchtrack by Antoine Schmitt"
+authors = ["Nico Franke <nico.franke01@gmail.com>"]
+license = "MIT"
+homepage = "https://github.com/ZerNico/dywapitchtrack_rs"
+repository = "https://github.com/ZerNico/dywapitchtrack_rs"
+keywords = ["pitch", "detection", "frequency", "dywapitchtrack", "audio", "sound"]
+categories = ["multimedia", "no-std", "algorithms"]
+version = "0.1.0"
+edition = "2021"
+readme = "README.md"
+
+
+[dev-dependencies]
+hound = "3.5.0"
+criterion = "0.4.0"
+
+[[bench]]
+name = "compute_pitch_benchmark"
+harness = false
