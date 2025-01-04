@@ -41,8 +41,8 @@ pub struct DywaPitchTracker {
 }
 
 impl DywaPitchTracker {
-    pub fn new() -> DywaPitchTracker {
-        DywaPitchTracker {
+    pub fn new() -> Self {
+        Self {
             prev_pitch: -1.0,
             pitch_confidence: -1,
             max_flwt_levels: 6,
@@ -166,25 +166,16 @@ impl DywaPitchTracker {
         &mut self,
         samples: &Vec<f32>,
         start_sample: usize,
-        sample_count_g: usize,
+        sample_count: usize,
     ) -> f32 {
         let mut pitch_f: f32 = 0.0;
 
         let mut si: f32;
         let mut si1: f32;
 
-        let sample_count = DywaPitchTracker::floor_power_of_2(sample_count_g as i32) as usize;
+        let sample_count = DywaPitchTracker::floor_power_of_2(sample_count as i32) as usize;
 
-        let mut sam: Vec<f32> = vec![0.0; sample_count];
-
-        {
-            let mut index = 0;
-            while index < sample_count {
-                sam[index] = samples[index + start_sample];
-                index += 1;
-            }
-        }
-
+        let mut sam = samples[start_sample..start_sample+sample_count].to_vec();
         let mut cur_sam_nb = sample_count;
 
         let mut distances: Vec<i32> = vec![0; sample_count];
