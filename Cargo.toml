@@ -13,8 +13,8 @@ readme = "README.md"
 
 
 [dev-dependencies]
-hound = "3.5.0"
-criterion = "0.4.0"
+hound = "3.5.1"
+criterion = "0.5.1"
 
 [[bench]]
 name = "compute_pitch_benchmark"
